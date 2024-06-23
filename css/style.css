@@ -1,0 +1,116 @@
+:root {
+    --gray: rgb(30, 29, 29);
+    --lightgray: rgb(51, 49, 49);
+    --teal: rgb(23, 82, 66);
+    --lightteal: rgb(33, 114, 92);
+    --green: rgb(29, 232, 174);
+    --black: rgb(0, 0, 0); 
+    --white: rgb(194, 186, 186); 
+    --textWhite: rgb(255, 255, 255); 
+    --whiteGray: rgb(121, 120, 120);
+    --lightblue: rgb(88, 136, 212);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--black);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    max-width: 500px;
+    min-width: 350px;
+}
+
+.theme {
+    height: 8vh;
+    position: relative;
+}
+
+.themeIcon {
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.resultSpace {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 0 20px 0 20px;
+    height: 37vh;
+    color: var(--textWhite);
+    font-size: 80px;
+}
+
+.grid {
+    height: 52vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 12px 0px;
+    justify-items: center;
+    padding: 8px
+}
+
+.btn {
+    width: 70px;
+    height: 50px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    background-color: var(--gray);
+    border-radius: 38px;
+    border: none;
+}
+
+.btn:active {
+    background-color: var(--lightgray);
+}
+
+.btn.teal {
+    background-color: var(--teal);
+    color: var(--green);
+}
+
+.btn.teal:active {
+    background-color: var(--lightteal);
+}
+
+.light-mode {
+    background-color: var(--white);
+    color: var(--textWhite);
+}
+
+.light-mode .resultSpace {
+    color: var(--black);
+}
+
+.light-mode .btn {
+    background-color: var(--whiteGray);
+    color: var(--black);
+}
+
+.light-mode .btn.teal {
+    background-color: var(--lightblue);
+    color: var(--black);
+}
+
+.light-mode .themeIcon {
+    filter: invert();
+}
+
+@media (min-width: 768px) {
+    .container{
+        position: relative;
+        left: 32vw;
+    }
+}
