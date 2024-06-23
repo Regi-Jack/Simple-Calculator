@@ -2,7 +2,8 @@ let btn = document.querySelectorAll(".btn");
 let resultSpace = document.querySelector(".resultSpace");
 let theme = document.querySelector(".themeIcon");
 let currOp = null;
-let currNum = "";
+let currNum = "0";
+let flag = 0;
 let operatorStack = [];
 let operandStack = [];
 
@@ -60,14 +61,21 @@ function handleNumber(num) {
 function handleAC() {
     resultSpace.innerHTML = "0";
     currOp = null;
-    currNum = "";
+    currNum = "0";
     operatorStack = [];
     operandStack = [];
 }
 
 function handleDel() {
     if (resultSpace.innerHTML == "Error") handleAC();
-    else resultSpace.innerHTML = resultSpace.innerHTML.slice(0, -1);
+    else if (resultSpace.innerHTML == "NaN") handleAC();
+    else if (flag == 1) {
+        flag = 0;
+        handleAC();
+    } else {
+        resultSpace.innerHTML = resultSpace.innerHTML.slice(0, -1);
+        currNum = currNum.slice(0,-1);
+    }
 }
 
 function handleSign() {
@@ -76,6 +84,7 @@ function handleSign() {
         return;
     }
     resultSpace.innerHTML = (-1 * parseFloat(resultSpace.innerHTML)).toString();
+    currNum = (-1*parseFloat(currNum)).toString();
 }
 
 function handleDecimal() {
@@ -86,6 +95,7 @@ function handleDecimal() {
 }
 
 function handleEqual() {
+    flag = 1;
     operandStack.push(parseFloat(currNum));
     while (operatorStack.length != 0) {
         currOp = operatorStack.pop();

@@ -23,7 +23,6 @@ body {
     height: 100vh;
     width: 100vw;
     max-width: 500px;
-    min-width: 350px;
 }
 
 .theme {
@@ -43,17 +42,17 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     margin: 0 20px 0 20px;
-    height: 37vh;
+    height: 32vh;
     color: var(--textWhite);
-    font-size: 80px;
+    font-size: 70px;
 }
 
 .grid {
-    height: 52vh;
+    height: 50vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 12px 0px;
+    gap: 8px 0px;
     justify-items: center;
     padding: 8px
 }
